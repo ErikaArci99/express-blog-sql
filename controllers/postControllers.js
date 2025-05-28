@@ -10,6 +10,17 @@ const index = (req, res) => {
     });
 };
 
+const destroy = (req, res) => {
+    const id = req.params.id;
+
+    connection.query('DELETE FROM posts WHERE id = ?', [id], (err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database query failed' });
+        }
+        res.sendStatus(204);
+    });
+};
+
 const show = (req, res) => {
     const id = req.params.id;
     const sql = 'SELECT * FROM posts WHERE id = ?';
@@ -25,4 +36,4 @@ const show = (req, res) => {
     });
 };
 
-module.exports = { index, show };
+module.exports = { index, show, destroy };

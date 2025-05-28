@@ -8,4 +8,8 @@ router.get('/', postController.index);
 // Rotta show (singolo post)
 router.get('/:id', postController.show);
 
+
+// Rotta destroy (eliminazione post)
+router.delete('/:id', postController.destroy);
+
 module.exports = router;

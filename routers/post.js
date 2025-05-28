@@ -1,17 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const postController = require('../controllers/postControllers');
 
-//rotte crud per i post
+// Rotta index (tutti i post)
+router.get('/', postController.index);
 
-//rotta index
-router.get('/posts', (req, res) => {
-    console.log('elenco post')
-})
+// Rotta show (singolo post)
+router.get('/:id', postController.show);
 
-//rotta dettaglio
-router.get('/posts:id', (req, res) => {
-    console.log('post con id' + req.params.id)
-    res.send('dettaglio post')
-})
-
-module.exports = router;  //esportazione router
+module.exports = router;

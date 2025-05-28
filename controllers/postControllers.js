@@ -6,4 +6,4 @@ const show = (req, res) => {
     console.log('post con id' + req.params.id)
 };
 
-module.export = { index, show };
+module.exports = { index, show };

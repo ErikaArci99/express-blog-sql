@@ -9,6 +9,18 @@ app.get('/', (req, res) => {
     res.send('benvenuto nel mio blog')
 });
 
+//importo router
+const postRouter = require('./routers/post')
+
+app.use('/post', postRouter);
+
 app.listen(port, () => {
     console.log(`server in ascolto sulla porta ${port}`)
 });
+
+//middleware per gli asset statici
+app.use(express.static('public'));
+
+//middelware per il parsing del body delle richieste
+app.use(express.json());
+
